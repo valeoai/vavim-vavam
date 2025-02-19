@@ -8,23 +8,37 @@ import ContributionDescription from "@/components/ContributionDescription"
 
 const coreContributors = [
   { name: "Florent Bartoccioni", link: "#florent-bartoccioni" },
-  { name: "Elias Ramzi", link: "#elias-ramzi" },
+  { name: "Elias Ramzi", link: "https://elias-ramzi.github.io/" },
 ]
 
 const contributors = [
-  { name: "John Doe", link: "#john-doe" }
+  { name: "Victor Besnier", link: "#victor-besnier" },
+  { name: "Shashanka Venkataramanan", link: "#shashanka-venkataramanan" },
+  { name: "Tuan-Hung Vu", link: "#tuan-hung-vu" },
+  { name: "Yihong Xu", link: "#yihong-xu" },
+  { name: "Loick Chambon", link: "#loick-chambon" },
+  { name: "Spyros Gidaris", link: "#spyros-gidaris" },
+  { name: "Serkan Odabas", link: "#serkan-odabas" },
+  { name: "David Hurych", link: "#david-hurych" },
+  { name: "Renaud Marlet", link: "#renaud-marlet" },
+  { name: "Alexandre Boulch", link: "#alexandre-boulch" },
+  { name: "Mickael Chen", link: "#mickael-chen" },
+  { name: "Eloi Zablocki", link: "#eloi-zablocki" },
+  { name: "Andrei Bursuc", link: "#andrei-bursuc" },
+  { name: "Eduardo Valle", link: "#eduardo-valle" },
+  { name: "Matthieu Cord", link: "#matthieu-cord" },
 ]
 
 const links = [
   { text: "Paper", href: "#paper" },
-  { text: "Code", href: "#code" },
+  { text: "Code", href: "https://github.com/valeoai/VideoActionModel" },
 ]
 
-const abstract = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.`
+const abstract = `We explores the potential of large-scale generative video models to enhance autonomous driving capabilities, introducing an open-source autoregressive video model (VaViM) and a companion video-action model (VaVAM). VaViM is a simple autoregressive model that predicts frames using spatio-temporal token sequences, while VaVAM leverages the learned representations to generate driving trajectories through imitation learning. Together, they offer a complete perception-to-action pipeline.`
 
 const bibTexEntry = `@article{vavam2025,
   title={VaViM and VaVAM: Autonomous Driving through Video Generative Modeling},
-  author={Smith, John and Johnson, Alice and Miller, Robert},
+  author={Bartoccioni, Florent and Ramzi, Elias and Besnier, Victor and Venkataramanan, Shashanka and Vu, Tuan-Hung and Xu, Yihong and Chambon, Loick and Gidaris, Spyros and Odabas, Serkan and Hurych, David and Marlet, Renaud and Boulch, Alexandre and Chen, Mickael and Zablocki, Eloi and Bursuc, Andrei and Valle, Eduardo and Cord, Matthieu},
   journal={arXiv preprint arXiv:XXXX.XXXXX},
   year={2025}
 }`
@@ -48,11 +62,11 @@ const comparisonGroups = [
 
 const contributions = [
   {
-    category: "Project Lead (Research direction, technical roadmap and project coordination)",
+    category: "Project Lead (Research direction, technical roadmap, project coordination)",
     description: "Florent Bartoccioni",
   },
   {
-    category: "Core contributors (Contributed to all aspects of the codebase, ran experiments and evaluations)",
+    category: "Core contributors (All aspects of the codebase, experiments, evaluations)",
     description: "Florent Bartoccioni, Elias Ramzi",
   },
   {
@@ -65,22 +79,22 @@ Tuan-Hung Vu -- GPT adaptation from nanoGPT
 Yihong Xu -- nuPlan preprocessing and initial dataloader development`,
   },
   {
-    category: "Paper (manuscript preparation, designing paper visualization and figures)",
+    category: "Technical report (Manuscript preparation, design, visualization, figures)",
     description:
       "Florent Bartoccioni, Elias Ramzi, Victor Besnier, Shashanka Venkataramanan, Eloi Zablocki, Yihong Xu, Tuan-Hung Vu",
   },
   {
     category:
-      "Public Computing Grant Acquisition (project proposal writing for Adastra, EuroHPC and Jean-Zay grand challenges)",
+      "Grant Acquisition (Grant proposals for Adastra, EuroHPC, and Jean Zay Grand Challenges)",
     description:
       "Florent Bartoccioni, Alexandre Boulch, Eduardo Valle, Spyros Gidaris, Eloi Zablocki, Matthieu Cord, Serkan Odabas, David Hurych",
   },
   {
-    category: "Advisory (research and organization guidance)",
+    category: "Advisory (Research and organization guidance)",
     description: "Eloi Zablocki, Alexandre Boulch, Mickael Chen",
   },
   {
-    category: "Senior Advisory (research and organization guidance)",
+    category: "Senior Advisory (Research and organization guidance)",
     description: "Eduardo Valle, Andrei Bursuc, Renaud Marlet, Matthieu Cord",
   },
 ]
@@ -110,4 +124,3 @@ export default function Home() {
     </main>
   )
 }
-
