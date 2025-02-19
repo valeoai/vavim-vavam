@@ -1,4 +1,4 @@
 export function getBasePath() {
-  return process.env.NODE_ENV === "production" ? "/vavam-project" : ""
+  return process.env.NODE_ENV === "production" ? "/vavim-vavam" : ""
 }
 
