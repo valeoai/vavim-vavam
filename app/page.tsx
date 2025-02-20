@@ -48,12 +48,12 @@ const VaViM_examples = [
   {
     //subtitle: "",
     videos: [
-      { title: "", src: "/vavim-vavam/videos/VaViM/nuscenes_vavim_l_3605.mp4" },
-      { title: "", src: "/vavim-vavam/videos/VaViM/nuscenes_vavim_l_2357.mp4" },
-      { title: "", src: "/vavim-vavam/videos/VaViM/nuscenes_vavim_l_94.mp4" },
-      { title: "", src: "/vavim-vavam/videos/VaViM/nuscenes_vavim_l_829.mp4" },
-      { title: "", src: "/vavim-vavam/videos/VaViM/night_nuscenes_vavim_l_4526.mp4" },
-      { title: "", src: "/vavim-vavam/videos/VaViM/rain_nuscenes_vavim_l_2579.mp4" },
+      { title: "", src: "/videos/VaViM/nuscenes_vavim_l_3605.mp4" },
+      { title: "", src: "/videos/VaViM/nuscenes_vavim_l_2357.mp4" },
+      { title: "", src: "/videos/VaViM/nuscenes_vavim_l_94.mp4" },
+      { title: "", src: "/videos/VaViM/nuscenes_vavim_l_829.mp4" },
+      { title: "", src: "/videos/VaViM/night_nuscenes_vavim_l_4526.mp4" },
+      { title: "", src: "/videos/VaViM/rain_nuscenes_vavim_l_2579.mp4" },
     ],
   },
 ]
@@ -62,9 +62,9 @@ const comparisonGroups = [
   {
     subtitle: "1. Front scenario 0013 -- gray BEV boxes are GT vehicles for vis. purposes",
     videos: [
-      { title: "UniAD #1", src: "/vavim-vavam/videos/VaVAM/UniAD_frontal_0103_run_45.mp4" },
-      { title: "UniAD #2", src: "/vavim-vavam/videos/VaVAM/UniAD_frontal_0103_run_47.mp4" },
-      { title: "VaVaM", src: "/vavim-vavam/videos/VaVAM/ours_frontal_0103_run_45.mp4" },
+      { title: "UniAD #1", src: "/videos/VaVAM/UniAD_frontal_0103_run_45.mp4" },
+      { title: "UniAD #2", src: "/videos/VaVAM/UniAD_frontal_0103_run_47.mp4" },
+      { title: "VaVaM", src: "/videos/VaVAM/ours_frontal_0103_run_45.mp4" },
     ],
   },
 ]
@@ -73,9 +73,9 @@ const failureCases = [
   {
     //subtitle: "1. Front scenario 0013 -- gray BEV boxes are GT vehicles for vis. purposes",
     videos: [
-      { title: "Critical Failure", src: "/vavim-vavam/videos/VaVAM/failure_frontal_0923_run_2.mp4" },
-      { title: "Model ignore command. Train and val set overlap on nuScenes?", src: "/vavim-vavam/videos/VaVAM/failure_side_0108_run_36.mp4" },
-      { title: "Fails to brake", src: "/vavim-vavam/videos/VaVAM/failure_stationary_0783_run_19.mp4" },
+      { title: "Critical Failure", src: "/videos/VaVAM/failure_frontal_0923_run_2.mp4" },
+      { title: "Model ignore command. Train and val set overlap on nuScenes?", src: "/videos/VaVAM/failure_side_0108_run_36.mp4" },
+      { title: "Fails to brake", src: "/videos/VaVAM/failure_stationary_0783_run_19.mp4" },
     ],
   },
 ]
