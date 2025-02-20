@@ -7,26 +7,26 @@ import BibTexSection from "@/components/BibTexSection"
 import ContributionDescription from "@/components/ContributionDescription"
 
 const coreContributors = [
-  { name: "Florent Bartoccioni", link: "#florent-bartoccioni" },
-  { name: "Elias Ramzi", link: "https://elias-ramzi.github.io/" },
+  { name: "Florent Bartoccioni", link: "https://f-barto.github.io" },
+  { name: "Elias Ramzi", link: "https://elias-ramzi.github.io" },
 ]
 
 const contributors = [
-  { name: "Victor Besnier", link: "#victor-besnier" },
-  { name: "Shashanka Venkataramanan", link: "#shashanka-venkataramanan" },
-  { name: "Tuan-Hung Vu", link: "#tuan-hung-vu" },
-  { name: "Yihong Xu", link: "#yihong-xu" },
-  { name: "Loick Chambon", link: "#loick-chambon" },
-  { name: "Spyros Gidaris", link: "#spyros-gidaris" },
-  { name: "Serkan Odabas", link: "#serkan-odabas" },
-  { name: "David Hurych", link: "#david-hurych" },
-  { name: "Renaud Marlet", link: "#renaud-marlet" },
-  { name: "Alexandre Boulch", link: "#alexandre-boulch" },
-  { name: "Mickael Chen", link: "#mickael-chen" },
-  { name: "Eloi Zablocki", link: "#eloi-zablocki" },
-  { name: "Andrei Bursuc", link: "#andrei-bursuc" },
-  { name: "Eduardo Valle", link: "#eduardo-valle" },
-  { name: "Matthieu Cord", link: "#matthieu-cord" },
+  { name: "Victor Besnier", link: "https://scholar.google.com/citations?hl=fr&user=n_C2h-QAAAAJ" },
+  { name: "Shashanka Venkataramanan", link: "https://shashankvkt.github.io" },
+  { name: "Tuan-Hung Vu", link: "https://tuanhungvu.github.io" },
+  { name: "Yihong Xu", link: "https://github.com/yihongXU" },
+  { name: "Loick Chambon", link: "https://loickch.github.io" },
+  { name: "Spyros Gidaris", link: "https://scholar.google.fr/citations?hl=en&user=7atfg7EAAAAJ&view_op=list_works&sortby=pubdate" },
+  { name: "Serkan Odabas", link: "https://www.linkedin.com/in/serkan-odabas-774144113" },
+  { name: "David Hurych", link: " https://www.linkedin.com/in/david-hurych-1b862b82" },
+  { name: "Renaud Marlet", link: "https://imagine.enpc.fr/~marletr" },
+  { name: "Alexandre Boulch", link: "https://boulch.eu" },
+  { name: "Mickael Chen", link: "https://www.linkedin.com/in/mickael-chen-ml" },
+  { name: "Eloi Zablocki", link: "https://eloiz.github.io" },
+  { name: "Andrei Bursuc", link: "https://abursuc.github.io" },
+  { name: "Eduardo Valle", link: "https://eduardovalle.com/" },
+  { name: "Matthieu Cord", link: "https://cord.isir.upmc.fr/" },
 ]
 
 const links = [
