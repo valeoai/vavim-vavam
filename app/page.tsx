@@ -34,7 +34,7 @@ const links = [
   { text: "Code", href: "https://github.com/valeoai/VideoActionModel" },
 ]
 
-const abstract = `We explores the potential of large-scale generative video models to enhance autonomous driving capabilities, introducing an open-source autoregressive video model (VaViM) and a companion video-action model (VaVAM). VaViM is a simple autoregressive model that predicts frames using spatio-temporal token sequences, while VaVAM leverages the learned representations to generate driving trajectories through imitation learning. Together, they offer a complete perception-to-action pipeline.`
+const abstract = `We explore the potential of large-scale generative video models for autonomous driving, introducing an open-source auto-regressive video model (VaViM) and its companion video-action model (VaVAM) to investigate how video pre-training transfers to real-world driving. VaViM is a simple auto-regressive video model that predicts frames using spatio-temporal token sequences. We show that it captures the semantics and dynamics of driving scenes. VaVAM, the video-action model, leverages the learned representations of VaViM to generate driving trajectories through imitation learning. Together, the models form a complete perception-to-action pipeline. We evaluate our models in open- and closed-loop driving scenarios, revealing that video-based pre-training holds promise for autonomous driving. Key insights include the semantic richness of the learned representations, the benefits of scaling for video synthesis, and the complex relationship between model size, data, and safety metrics in closed-loop evaluations.`
 
 const bibTexEntry = `@article{vavam2025,
   title={VaViM and VaVAM: Autonomous Driving through Video Generative Modeling},
@@ -43,19 +43,39 @@ const bibTexEntry = `@article{vavam2025,
   year={2025}
 }`
 
-const comparisonGroups = [
+
+const VaViM_examples = [
   {
-    subtitle: "1. Front scenario 0013 sample 45",
+    //subtitle: "",
     videos: [
-      { title: "UniAD", src: "/placeholder_uniad_front_0013_45.mp4" },
-      { title: "VaVaM", src: "/placeholder_vavam_front_0013_45.mp4" },
+      { title: "", src: "/vavim-vavam/videos/VaViM/nuscenes_vavim_l_3605.mp4" },
+      { title: "", src: "/vavim-vavam/videos/VaViM/nuscenes_vavim_l_2357.mp4" },
+      { title: "", src: "/vavim-vavam/videos/VaViM/nuscenes_vavim_l_94.mp4" },
+      { title: "", src: "/vavim-vavam/videos/VaViM/nuscenes_vavim_l_829.mp4" },
+      { title: "", src: "/vavim-vavam/videos/VaViM/night_nuscenes_vavim_l_4526.mp4" },
+      { title: "", src: "/vavim-vavam/videos/VaViM/rain_nuscenes_vavim_l_2579.mp4" },
     ],
   },
+]
+
+const comparisonGroups = [
   {
-    subtitle: "2. Side scenario 0016 sample 3",
+    subtitle: "1. Front scenario 0013 -- gray BEV boxes are GT vehicles for vis. purposes",
     videos: [
-      { title: "UniAD", src: "/placeholder_uniad_side_0016_3.mp4" },
-      { title: "VaVaM", src: "/placeholder_vavam_side_0016_3.mp4" },
+      { title: "UniAD #1", src: "/vavim-vavam/videos/VaVAM/UniAD_frontal_0103_run_45.mp4" },
+      { title: "UniAD #2", src: "/vavim-vavam/videos/VaVAM/UniAD_frontal_0103_run_47.mp4" },
+      { title: "VaVaM", src: "/vavim-vavam/videos/VaVAM/ours_frontal_0103_run_45.mp4" },
+    ],
+  },
+]
+
+const failureCases = [
+  {
+    //subtitle: "1. Front scenario 0013 -- gray BEV boxes are GT vehicles for vis. purposes",
+    videos: [
+      { title: "Critical Failure", src: "/vavim-vavam/videos/VaVAM/failure_frontal_0923_run_2.mp4" },
+      { title: "Model ignore command. Train and val set overlap on nuScenes?", src: "/vavim-vavam/videos/VaVAM/failure_side_0108_run_36.mp4" },
+      { title: "Fails to brake", src: "/vavim-vavam/videos/VaVAM/failure_stationary_0783_run_19.mp4" },
     ],
   },
 ]
@@ -111,12 +131,14 @@ export default function Home() {
         <LinkSection links={links} />
         <AbstractSection abstract={abstract} />
 
-        <VideoSection title="VaViM Video Generation" videoSrc="/placeholder_vavim_generation.mp4" />
+        <ComparisonSection title="VaViM Video Generation" groups={VaViM_examples} />
 
         <ComparisonSection title="Driving Comparison: UniAD vs VaVaM" groups={comparisonGroups} />
 
-        <VideoSection title="Failure Cases" videoSrc="/placeholder_failure_cases.mp4" />
+        <VideoSection title="Emerging behavior of avoiding oncoming vehicle" videoSrc="/vavim-vavam/videos/VaVAM/ours_frontal_0110_run_5.mp4" />
 
+        <ComparisonSection title="Failure Cases" groups={failureCases} />
+        
         <BibTexSection bibTexEntry={bibTexEntry} />
 
         <ContributionDescription contributions={contributions} />
