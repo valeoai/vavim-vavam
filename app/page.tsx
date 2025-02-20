@@ -135,7 +135,7 @@ export default function Home() {
 
         <ComparisonSection title="Driving Comparison: UniAD vs VaVaM" groups={comparisonGroups} />
 
-        <VideoSection title="Emerging behavior of avoiding oncoming vehicle" videoSrc="/vavim-vavam/videos/VaVAM/ours_frontal_0110_run_5.mp4" />
+        <VideoSection title="Emerging behavior of avoiding oncoming vehicle" videoSrc="/videos/VaVAM/ours_frontal_0110_run_5.mp4" />
 
         <ComparisonSection title="Failure Cases" groups={failureCases} />
         
