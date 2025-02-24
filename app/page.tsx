@@ -30,18 +30,19 @@ const contributors = [
 ]
 
 const links = [
-  { text: "Paper", href: "#paper" },
+  { text: "Paper", href: "https://arxiv.org/abs/2502.15672" },
   { text: "Code", href: "https://github.com/valeoai/VideoActionModel" },
 ]
 
-const abstract = `We explore the potential of large-scale generative video models for autonomous driving, introducing an open-source auto-regressive video model (VaViM) and its companion video-action model (VaVAM) to investigate how video pre-training transfers to real-world driving. VaViM is a simple auto-regressive video model that predicts frames using spatio-temporal token sequences. We show that it captures the semantics and dynamics of driving scenes. VaVAM, the video-action model, leverages the learned representations of VaViM to generate driving trajectories through imitation learning. Together, the models form a complete perception-to-action pipeline. We evaluate our models in open- and closed-loop driving scenarios, revealing that video-based pre-training holds promise for autonomous driving. Key insights include the semantic richness of the learned representations, the benefits of scaling for video synthesis, and the complex relationship between model size, data, and safety metrics in closed-loop evaluations.`
+const abstract = `We explores the potential of large-scale generative video models to enhance autonomous driving capabilities, introducing an open-source autoregressive video model (VaViM) and a companion video-action model (VaVAM). VaViM is a simple autoregressive model that predicts frames using spatio-temporal token sequences, while VaVAM leverages the learned representations to generate driving trajectories through imitation learning. Together, they offer a complete perception-to-action pipeline.`
 
 const bibTexEntry = `@article{vavam2025,
   title={VaViM and VaVAM: Autonomous Driving through Video Generative Modeling},
   author={Bartoccioni, Florent and Ramzi, Elias and Besnier, Victor and Venkataramanan, Shashanka and Vu, Tuan-Hung and Xu, Yihong and Chambon, Loick and Gidaris, Spyros and Odabas, Serkan and Hurych, David and Marlet, Renaud and Boulch, Alexandre and Chen, Mickael and Zablocki, Eloi and Bursuc, Andrei and Valle, Eduardo and Cord, Matthieu},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  journal={arXiv preprint arXiv:2502.15672},
   year={2025}
 }`
+
 
 
 const VaViM_examples = [
@@ -60,7 +61,8 @@ const VaViM_examples = [
 
 const comparisonGroups = [
   {
-    subtitle: "1. Front scenario 0013 -- gray BEV boxes are GT vehicles for vis. purposes",
+    subtitle: "1. Front scenario 0013",
+    description: "Although UniAD successfully detects and predicts the trajectory of the oncoming vehicle, it is unable to execute a safe evasive maneuver to avoid the hazardous situation.\n\nGray BEV boxes are GT vehicles for visualization purposes and not inputs to the model. More results and detailed comparison in our paper.",
     videos: [
       { title: "UniAD #1", src: "/videos/VaVAM/UniAD_frontal_0103_run_45.mp4" },
       { title: "UniAD #2", src: "/videos/VaVAM/UniAD_frontal_0103_run_47.mp4" },
@@ -72,10 +74,23 @@ const comparisonGroups = [
 const failureCases = [
   {
     //subtitle: "1. Front scenario 0013 -- gray BEV boxes are GT vehicles for vis. purposes",
+    description: "While our model demonstrates strong overall performance, analyzing failure cases provides crucial insights into its limitations and helps identify areas for future improvement. Below, we present three representative examples that highlight different types of challenges in our framework.\n\n We propose future work directions in our paper to address the fundamental challenges exposed by these critical scenarios",
     videos: [
-      { title: "Critical Failure", src: "/videos/VaVAM/failure_frontal_0923_run_2.mp4" },
-      { title: "Model ignore command. Train and val set overlap on nuScenes?", src: "/videos/VaVAM/failure_side_0108_run_36.mp4" },
-      { title: "Fails to brake", src: "/videos/VaVAM/failure_stationary_0783_run_19.mp4" },
+      { 
+        title: "#1 Collision Course with Oncoming Vehicle.", 
+        src: "/videos/VaVAM/failure_frontal_0923_run_2.mp4",
+        description: "The model maintains its trajectory despite an oncoming white vehicle, making no attempt at evasive action. This is particularly intriguing because our model demonstrates collision avoidance capabilities in many similar scenarios, achieving state-of-the-art performance in frontal situations. This raises important questions about what scene elements trigger appropriate safety responses versus failures in visually similar situations."
+      },
+      { 
+        title: "#2 Command-Trajectory Mismatch", 
+        src: "/videos/VaVAM/failure_side_0108_run_36.mp4",
+        description: "At this intersection, despite receiving a clear \"turn right\" command, the model executes a left turn instead. We hypothesize this behavior stems from the model overfitting to training data - this specific intersection likely appears in the training set but with left turns, leading to a failure to generalize to alternative commands during evaluation."
+      },
+      { 
+        title: "#3 Limited Emergency Braking Response", 
+        src: "/videos/VaVAM/failure_stationary_0783_run_19.mp4",
+        description: "When encountering a bus positioned diagonally across the road - an obvious situation requiring a complete stop - the model maintains motion. We've observed that our model rarely initiates complete stops or emergency braking, even in scenarios where such actions would be the optimal safety response."
+      },
     ],
   },
 ]
@@ -133,9 +148,13 @@ export default function Home() {
 
         <ComparisonSection title="VaViM Video Generation" groups={VaViM_examples} />
 
-        <ComparisonSection title="Driving Comparison: UniAD vs VaVaM" groups={comparisonGroups} />
+        <VideoSection 
+          title="Emerging behavior of avoiding oncoming vehicle" 
+          videoSrc="/videos/VaVAM/ours_frontal_0110_run_5.mp4" 
+          description={"We now showcase several driving demonstrations extracted from NeuroNCAP simulations.\n\n The left panel displays a bird's-eye-view where gray boxes represent objects in the scene (for visualization purposes only), the red curve indicates the intended guiding path (from which a high-level command [RIGHT,LEFT,STRAIGHT] is derived), and black dots show the model's driving trajectory decision.\n\n The right panels show the corresponding camera views from the front, front-left, and front-right perspectives (note that VaVAM only uses the fornt cam).\n\n In this video, despite being instructed to follow the guiding path straight ahead (shown in red), VaVAM demonstrates emergent defensive driving behavior when encountering a hazardous situation. In this scenario, an oncoming vehicle has entered our lane, creating a potential head-on collision.\n\n Without explicit programming or supervision for such scenarios, VaVAM autonomously deviates from its prescribed path to safely maneuver around the opposing vehicle."}
+        />
 
-        <VideoSection title="Emerging behavior of avoiding oncoming vehicle" videoSrc="/videos/VaVAM/ours_frontal_0110_run_5.mp4" />
+        <ComparisonSection title="Driving Comparison: UniAD (Hu et al., CVPR 2023) vs VaVaM" groups={comparisonGroups} />
 
         <ComparisonSection title="Failure Cases" groups={failureCases} />
         
