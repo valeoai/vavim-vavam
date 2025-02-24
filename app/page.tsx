@@ -38,7 +38,7 @@ const abstract = `We explores the potential of large-scale generative video mode
 
 const bibTexEntry = `@article{vavam2025,
   title={VaViM and VaVAM: Autonomous Driving through Video Generative Modeling},
-  author={Bartoccioni, Florent and Ramzi, Elias and Besnier, Victor and Venkataramanan, Shashanka and Vu, Tuan-Hung and Xu, Yihong and Chambon, Loick and Gidaris, Spyros and Odabas, Serkan and Hurych, David and Marlet, Renaud and Boulch, Alexandre and Chen, Mickael and Zablocki, Eloi and Bursuc, Andrei and Valle, Eduardo and Cord, Matthieu},
+  author={Florent Bartoccioni and Elias Ramzi and Victor Besnier and Shashanka Venkataramanan and Tuan-Hung Vu and Yihong Xu and Loick Chambon and Spyros Gidaris and Serkan Odabas and David Hurych and Renaud Marlet and Alexandre Boulch and Mickael Chen and Éloi Zablocki and Andrei Bursuc and Eduardo Valle and Matthieu Cord},
   journal={arXiv preprint arXiv:2502.15672},
   year={2025}
 }`
@@ -73,7 +73,6 @@ const comparisonGroups = [
 
 const failureCases = [
   {
-    //subtitle: "1. Front scenario 0013 -- gray BEV boxes are GT vehicles for vis. purposes",
     description: "While our model demonstrates strong overall performance, analyzing failure cases provides crucial insights into its limitations and helps identify areas for future improvement. Below, we present three representative examples that highlight different types of challenges in our framework.\n\n We propose future work directions in our paper to address the fundamental challenges exposed by these critical scenarios",
     videos: [
       { 
