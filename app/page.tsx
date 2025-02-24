@@ -5,6 +5,7 @@ import VideoSection from "@/components/VideoSection"
 import ComparisonSection from "@/components/ComparisonSection"
 import BibTexSection from "@/components/BibTexSection"
 import ContributionDescription from "@/components/ContributionDescription"
+import { FileText, Github } from "lucide-react"
 
 const coreContributors = [
   { name: "Florent Bartoccioni", link: "https://f-barto.github.io" },
@@ -29,9 +30,10 @@ const contributors = [
   { name: "Matthieu Cord", link: "https://cord.isir.upmc.fr/" },
 ]
 
+
 const links = [
-  { text: "Paper", href: "https://arxiv.org/abs/2502.15672" },
-  { text: "Code", href: "https://github.com/valeoai/VideoActionModel" },
+  { text: "Paper", href: "https://arxiv.org/abs/2502.15672", icon: <FileText className="h-4 w-4" /> },
+  { text: "Code", href: "https://github.com/valeoai/VideoActionModel", icon: <Github className="h-4 w-4" /> },
 ]
 
 const abstract = `We explores the potential of large-scale generative video models to enhance autonomous driving capabilities, introducing an open-source autoregressive video model (VaViM) and a companion video-action model (VaVAM). VaViM is a simple autoregressive model that predicts frames using spatio-temporal token sequences, while VaVAM leverages the learned representations to generate driving trajectories through imitation learning. Together, they offer a complete perception-to-action pipeline.`

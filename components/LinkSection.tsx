@@ -1,9 +1,10 @@
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight} from "lucide-react"
 
 interface LinkItem {
   text: string
   href: string
+  icon?: JSX.Element
 }
 
 interface LinkSectionProps {
@@ -21,6 +22,7 @@ export default function LinkSection({ links }: LinkSectionProps) {
             href={link.href}
             className="inline-flex items-center bg-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-sm font-bold hover:bg-[#82E600] transition-colors"
           >
+            {link.icon && <span className="mr-2">{link.icon}</span>}
             {link.text} <ArrowUpRight className="ml-1 h-4 w-4" />
           </Link>
         ))}
@@ -28,4 +30,3 @@ export default function LinkSection({ links }: LinkSectionProps) {
     </section>
   )
 }
-
